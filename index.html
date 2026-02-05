@@ -119,6 +119,7 @@
             margin-top: 40px;
             min-height: 80px;
             align-items: center;
+            position: relative;
         }
 
         button {
@@ -267,9 +268,10 @@
         let noBtnScale = 1;
         let yesBtnScale = 1;
 
-        // Position no button initially
-        noBtn.style.left = '60%';
-        noBtn.style.top = '50%';
+        // Position no button initially (to the right of yes button)
+        const btnContainer = noBtn.parentElement.getBoundingClientRect();
+        noBtn.style.left = (btnContainer.width / 2 + 80) + 'px';
+        noBtn.style.top = '0px';
 
         noBtn.addEventListener('mouseenter', () => {
             sadCat.classList.add('show');
